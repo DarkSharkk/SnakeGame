@@ -51,7 +51,7 @@ function loop() {
         snake.cells.pop();
     }
 
-    context.fillStyle = 'blue';
+    context.fillStyle = 'red';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     context.fillStyle = 'green';
 
