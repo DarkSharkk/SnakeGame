@@ -116,5 +116,20 @@ upBtn.addEventListener('touchstart', function() {
     snake.dy = -grid;
     snake.dx = 0;
 });
+const leftBtn = document.getElementById('left');
+upBtn.addEventListener('touchstart', function() {
+    snake.dx = -grid;
+    snake.dy = 0;
+});
+const rightBtn = document.getElementById('right');
+upBtn.addEventListener('touchstart', function() {
+    snake.dx = grid;
+    snake.dy = 0;
+});
+const downBtn = document.getElementById('down');
+upBtn.addEventListener('touchstart', function() {
+    snake.dy = grid;
+    snake.dx = 0;
+});
 
 requestAnimationFrame(loop);
