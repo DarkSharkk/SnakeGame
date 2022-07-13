@@ -51,7 +51,7 @@ function loop() {
         snake.cells.pop();
     }
 
-    context.fillStyle = 'red';
+    context.fillStyle = 'blue';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     context.fillStyle = 'green';
 
@@ -117,17 +117,17 @@ upBtn.addEventListener('touchstart', function() {
     snake.dx = 0;
 });
 const leftBtn = document.getElementById('left');
-upBtn.addEventListener('touchstart', function() {
+leftBtn.addEventListener('touchstart', function() {
     snake.dx = -grid;
     snake.dy = 0;
 });
 const rightBtn = document.getElementById('right');
-upBtn.addEventListener('touchstart', function() {
+rightBtn.addEventListener('touchstart', function() {
     snake.dx = grid;
     snake.dy = 0;
 });
 const downBtn = document.getElementById('down');
-upBtn.addEventListener('touchstart', function() {
+downBtn.addEventListener('touchstart', function() {
     snake.dy = grid;
     snake.dx = 0;
 });
