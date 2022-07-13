@@ -51,7 +51,7 @@ function loop() {
         snake.cells.pop();
     }
 
-    context.fillStyle = 'red';
+    context.fillStyle = 'blue';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     context.fillStyle = 'green';
 
@@ -116,7 +116,7 @@ document.addEventListener('touchstart', handleTouchStart, false);
 // А на движение пальцем по экрану - handleTouchMove      
 document.addEventListener('touchmove', handleTouchMove, false);
 
-var xDown = null;                                                        
+var xDown = null;                                                        ``
 var yDown = null;                                                        
 
 function handleTouchStart(evt) {                                         
