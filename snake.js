@@ -10,7 +10,8 @@ let snake = {
     dx: grid,
     dy: 0,
     cells: [],
-    maxCells: 4
+    maxCells: 4,
+    score: 0
 }
 
 let apple = {
@@ -24,7 +25,7 @@ function getRandomInt(min, max) {
 
 function loop() {
     requestAnimationFrame(loop);
-    if (++count < 4) {
+    if (++count < 6) {
         return;
     }
 
@@ -36,7 +37,7 @@ function loop() {
 
     if (snake.x < 0) {
         snake.x = canvas.width - grid;
-    } else if (snake.x >= canvas.height) {
+    } else if (snake.x >= canvas.width) {
         snake.x = 0;
     }
 
@@ -54,6 +55,7 @@ function loop() {
     context.fillStyle = 'red';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     context.fillStyle = 'green';
+    context.fillText(snake.score, 10, 10);
 
     snake.cells.forEach(function (cell, index) {
         // Чтобы создать эффект клеточек, делаем зелёные квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
@@ -62,6 +64,7 @@ function loop() {
         if (cell.x === apple.x && cell.y === apple.y) {
           // увеличиваем длину змейки
           snake.maxCells++;
+          snake.score++;
           // Рисуем новое яблочко
           // Помним, что размер холста у нас 400x400, при этом он разбит на ячейки — 25 в каждую сторону
           apple.x = getRandomInt(0, 25) * grid;
@@ -78,6 +81,7 @@ function loop() {
           snake.maxCells = 4;
           snake.dx = grid;
           snake.dy = 0;
+          snake.score = 0;
           // Ставим яблоко в случайное место
           apple.x = getRandomInt(0, 25) * grid;
           apple.y = getRandomInt(0, 25) * grid;
