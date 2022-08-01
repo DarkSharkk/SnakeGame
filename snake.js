@@ -52,10 +52,13 @@ function loop() {
         snake.cells.pop();
     }
 
-    context.fillStyle = 'red';
+    context.fillStyle = 'blue';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     context.fillStyle = 'green';
-    context.fillText(snake.score, 10, 10);
+
+    // context.fillStyle = 'white'
+    context.font = "22px serif"
+    context.fillText(snake.score, 10, 16);
 
     snake.cells.forEach(function (cell, index) {
         // Чтобы создать эффект клеточек, делаем зелёные квадратики меньше на один пиксель, чтобы вокруг них образовалась чёрная граница
@@ -81,6 +84,7 @@ function loop() {
           snake.maxCells = 4;
           snake.dx = grid;
           snake.dy = 0;
+          alert(`Ваш счёт ${snake.score}`);
           snake.score = 0;
           // Ставим яблоко в случайное место
           apple.x = getRandomInt(0, 25) * grid;
@@ -115,6 +119,7 @@ document.addEventListener('keydown', function (e) {
     }
 });                                             
 
+// Кнопки для управления на телефоне
 const upBtn = document.getElementById('up');
 upBtn.addEventListener('touchstart', function() {
     snake.dy = -grid;
