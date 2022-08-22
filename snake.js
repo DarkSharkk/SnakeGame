@@ -52,12 +52,12 @@ function loop() {
         snake.cells.pop();
     }
 
-    context.fillStyle = 'blue';
+    context.fillStyle = 'red';
     context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
     context.fillStyle = 'green';
 
     // context.fillStyle = 'white'
-    context.font = "22px serif"
+    context.font = "26px serif"
     context.fillText(snake.score, 10, 16);
 
     snake.cells.forEach(function (cell, index) {
@@ -84,6 +84,13 @@ function loop() {
           snake.maxCells = 4;
           snake.dx = grid;
           snake.dy = 0;
+          async function sendScore() {
+            await fetch('http://127.0.0.1:5000/game_score', {
+                method: 'POST',
+                body: JSON.stringify(snake.score)
+            })
+          }  
+          sendScore();
           alert(`Ваш счёт ${snake.score}`);
           snake.score = 0;
           // Ставим яблоко в случайное место
